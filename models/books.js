@@ -1,4 +1,3 @@
-// Configurando el módulo para su enrutamiento
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
@@ -13,7 +12,7 @@ mongoose.connect(mongoDBURI)
     .then(() => { console.log("Conexión exitosa con la BD!") })
     .catch((err) => { console.log("Se recibió un error...") })
 
-/* MODELOS DE MONGOOSE */
+/* MODELO DE MONGOOSE */
 
 // Definición del esquema de Mongoose para la colección 'books'
 const bookSchema = new mongoose.Schema({
@@ -26,8 +25,6 @@ const bookSchema = new mongoose.Schema({
 
 // Modelo basado en el esquema
 const Book = mongoose.model('Book', bookSchema)
-
-/* ENDPOINTS */
 
 // Endpoint para obtener todos los documentos de la colección 'books'
 router.get('/', async (req, res) => {
