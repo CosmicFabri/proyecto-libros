@@ -20,7 +20,9 @@ const bookSchema = new mongoose.Schema({
     author: String,
     pages: Number,
     genres: Array,
-    rating: Number
+    rating: Number,
+    coverURL: String,
+    price: Number
 })
 
 // Modelo basado en el esquema

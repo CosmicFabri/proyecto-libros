@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     const data = {
         name: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        balance: 500,
     }
 
     // Revisar si ya existe el usuario en la BD
@@ -30,8 +31,8 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(data.password, saltRounds)
     data.password = hashedPassword
 
-    const userdata = await collection.insertMany(data)
-    console.log(userdata)    
+    const userdata = await collection.insertMany([data])
+    console.log(userdata)
 })
 
 // Exportando el enrutador para poder usarlo en main.js
