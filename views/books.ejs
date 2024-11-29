@@ -1,0 +1,13 @@
+<!-- views/books.ejs -->
+<h1>Libros Disponibles</h1>
+<ul>
+    <% books.forEach(book => { %>
+        <li>
+            <strong><%= book.title %></strong> por <%= book.author %> - $<%= book.price %>
+            <form action="/view-books/buy" method="POST">
+                <input type="hidden" name="bookId" value="<%= book._id %>">
+                <button type="submit">Comprar</button>
+            </form>
+        </li>
+    <% }); %>
+</ul>

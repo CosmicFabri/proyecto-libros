@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const router = express.Router()
 
 // La colección de usuarios registrados en la BD
-const collection = require('../models/users')
+const users = require('../models/users')
 
 // Formulario, registro del usuario
 router.get('/', (req, res) => {
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     }
 
     // Revisar si ya existe el usuario en la BD
-    const existingUser = await collection.findOne({name: data.name})
+    const existingUser = await users.findOne({name: data.name})
 
     if (existingUser) {
         res.send('El usuario ya existe. Por favor selecciona un username diferente.')
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(data.password, saltRounds)
     data.password = hashedPassword
 
-    const userdata = await collection.insertMany([data])
+    const userdata = await users.insertMany([data])
     console.log(userdata)
 })
 

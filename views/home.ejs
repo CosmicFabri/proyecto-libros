@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <h1>Bienvenido, <%= username %>!</h1>
+    <h4>Tu salario actual: <%= balance %></h4>
+    <p>Esta es tu página principal.</p>
+    <a href="/log-out">Cerrar sesión</a>
+    <a href="/view-books">Comprar libros</a>
 </body>
 </html>
